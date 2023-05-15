@@ -1,0 +1,22 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+
+
+type Item {
+  id: Int!
+  name: String!
+  quantity: Int!
+  price: Float!
+}
+
+type SearchResult {
+  page: Int!
+  total: Int!
+  result: [Item!]!
+}
+
+type Query {
+  Search(query: String, limit: Int = 25, offset: Int = 0): SearchResult!
+  FindByIds(ids:[Int]) : [Item!]!
+}
